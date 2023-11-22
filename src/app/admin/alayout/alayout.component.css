@@ -1,0 +1,13 @@
+.container {
+  padding-top: 20px;
+  display: flex;
+}
+.container .sidebar {
+  flex-grow: 1;
+  display: flex;
+}
+.admin_conatiner {
+  padding: 20px;
+  border: solid 1px red;
+  flex-grow: 6;
+}

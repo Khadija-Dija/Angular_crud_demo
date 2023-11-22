@@ -1,0 +1,57 @@
+<p>c-add works!</p>
+<form #f="ngForm" name="form" (ngSubmit)="f.form.valid && onSubmit()">
+  <div class="form-group">
+    <label for="nom">Nom</label>
+    <input
+      type="text"
+      id="nom"
+      name="nom"
+      [(ngModel)]="user.nom"
+      #nom="ngModel"
+    />
+  </div>
+  <div class="form-group">
+    <label for="prenom">Prenom</label>
+    <input
+      type="text"
+      id="prenom"
+      name="prenom"
+      [(ngModel)]="user.prenom"
+      #nom="ngModel"
+    />
+  </div>
+  <div class="form-group">
+    <label for="pseudo">Pseudo</label>
+    <input
+      type="text"
+      id="pseudo"
+      name="pseudo"
+      [(ngModel)]="user.pseudo"
+      #nom="ngModel"
+    />
+  </div>
+  <div class="form-group">
+    <label for="email">Email</label>
+    <input
+      type="text"
+      id="email"
+      name="email"
+      [(ngModel)]="user.email"
+      #nom="ngModel"
+    />
+  </div>
+  <div class="form-group">
+    <label for="password">Password</label>
+    <input
+      type="text"
+      id="password"
+      name="password"
+      [(ngModel)]="user.password"
+      #nom="ngModel"
+    />
+  </div>
+
+  <div class="form-group">
+    <button type="button" class="btn btn-success" type="submit">Ajouter</button>
+  </div>
+</form>

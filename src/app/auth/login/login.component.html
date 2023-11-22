@@ -1,0 +1,45 @@
+<!-- <div>
+  <div>Email : {{ form.email }}</div>
+  <div>Password : {{ form.password }}</div>
+</div> -->
+<div class="form_container">
+  <form name="form" #f="ngForm" (ngSubmit)="f.form.valid && onSubmit()">
+    <div class="group">
+      <label for="email">Email</label>
+      <input
+        type="text"
+        name="email"
+        id="email"
+        autocomplete="on"
+        [(ngModel)]="form.email"
+        #email="ngModel"
+        required=""
+      />
+      <div class="form_error" *ngIf="email.errors && f.submitted">
+        Email is Required !!!
+      </div>
+    </div>
+    <div class="group">
+      <label for="password">Password</label>
+      <input
+        type="password"
+        name="password"
+        autocomplete="on"
+        id="password"
+        [(ngModel)]="form.password"
+        #password="ngModel"
+        required
+        minlength="5"
+      />
+      <div class="form_error" *ngIf="password.errors && f.submitted">
+        <div *ngIf="password.errors['required']">Password is required</div>
+        <div *ngIf="password.errors['minlength']">
+          Password must be at least 5 charracters
+        </div>
+      </div>
+    </div>
+    <div class="group">
+      <button type="submit">Submit</button>
+    </div>
+  </form>
+</div>

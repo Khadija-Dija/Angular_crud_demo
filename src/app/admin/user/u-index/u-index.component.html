@@ -1,0 +1,48 @@
+<!-- {{ userList | json }} -->
+
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th scope="col">Action</th>
+      <th scope="col">Nom</th>
+      <th scope="col">Prenom</th>
+      <!-- <th scope="col">Pseudo</th> -->
+      <th scope="col">Email</th>
+      <th scope="col">Dt Création</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let user of userList">
+      <td>
+        <button
+          type="button"
+          class="btn btn-info"
+          [routerLink]="['edit', user.id]"
+        >
+          Edit
+        </button>
+      </td>
+      <td>
+        <button type="button" class="btn btn-danger" (click)="delete(user.id)">
+          Delete
+        </button>
+      </td>
+      <td>
+        <button
+          class="btn btn-warning"
+          (click)="trash(user.id)"
+          *ngIf="user.deletedAt == null"
+        >
+          T
+        </button>
+        <button (click)="untrash(user.id)" *ngIf="user.deletedAt != null">
+          U
+        </button>
+      </td>
+      <td>{{ user.nom }}</td>
+      <td>{{ user.prenom }}</td>
+      <!-- <td>{{ user.pseudo }}</td> -->
+      <td>{{ user.email }}</td>
+    </tr>
+  </tbody>
+</table>

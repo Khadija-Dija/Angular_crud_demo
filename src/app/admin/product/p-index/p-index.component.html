@@ -1,0 +1,55 @@
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Action</th>
+      <th></th>
+      <th>#</th>
+      <th>Id</th>
+      <th>Nom</th>
+      <th>Description</th>
+
+      <th>Dt Création</th>
+      <th>Delete</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let product of productList">
+      <td>
+        <button
+          type="button"
+          class="btn btn-info"
+          [routerLink]="['edit', product.id]"
+        >
+          Edit
+        </button>
+      </td>
+      <td>
+        <button
+          type="button"
+          class="btn btn-danger"
+          (click)="delete(product.id)"
+        >
+          Delete
+        </button>
+      </td>
+
+      <td>
+        <button
+          class="btn btn-warning"
+          (click)="trash(product.id)"
+          *ngIf="product.deletedAt == null"
+        >
+          T
+        </button>
+        <button (click)="untrash(product.id)" *ngIf="product.deletedAt != null">
+          U
+        </button>
+      </td>
+      <td>{{ product.id }}</td>
+      <td>{{ product.nom }}</td>
+      <td>{{ product.description }}</td>
+      <td>{{ product.createdAt | date : "dd/MM/yyyy HH:mm:ss" : "UTC" }}</td>
+      <td>{{ product.deletedAt | date : "dd/mm/yyyy" }}</td>
+    </tr>
+  </tbody>
+</table>

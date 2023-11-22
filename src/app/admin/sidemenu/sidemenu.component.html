@@ -1,0 +1,21 @@
+<div class="sidebar">
+  <a [routerLink]="['/']">Retour Acceuil</a>
+  <ul class="side-menu">
+    <li><a [routerLink]="['dashboard']">Dashboard</a></li>
+    <li>User</li>
+    <li>
+      <ul class="submenu">
+        <li><a [routerLink]="['user']">Liste</a></li>
+        <li><a [routerLink]="['user/add']">Ajouter</a></li>
+      </ul>
+    </li>
+    <li>Products</li>
+    <li>
+      <ul class="submenu">
+        <li><a [routerLink]="['products']">Liste</a></li>
+        <li><a [routerLink]="['products/add']">Aouter</a></li>
+      </ul>
+    </li>
+    <!-- Ajouter d'autres éléments de liste de la même manière -->
+  </ul>
+</div>
